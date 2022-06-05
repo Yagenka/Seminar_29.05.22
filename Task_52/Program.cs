@@ -41,37 +41,25 @@ void PrintArray(int[,] array)
 }
 
 
-
-  
-
-
 double GetSrSum(int[,] array)
 {
-    double sum = 0;
-int count = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    double arsum = 0;
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-    
-        for (int j = 0; j < array.GetLength(1); j++)
+        double sum = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            
-                sum = sum + array[i, j];
-               
-                          
+            sum = sum + array[i, j];
+            arsum = sum / array.GetLength(0);
         }
-          Console.WriteLine(sum);
-sum = sum / array.GetLength(1); 
+        Console.Write("{0:0.0}  ", arsum);
     }
-
-
-    return sum;
+    return arsum;
 }
-
-
 
 int[,] arrayResult = GetArray(row, column);
 PrintArray(arrayResult);
-double sunsr = GetSrSum(arrayResult);
-Console.Write(sunsr);
+GetSrSum(arrayResult);
+
 
 
