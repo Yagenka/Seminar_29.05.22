@@ -5,6 +5,13 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
+
+Console.Write("Введите количество строк - ");
+int m = int.Parse(Console.ReadLine());
+
+Console.Write("Введите количество столбцов - ");
+int n = int.Parse(Console.ReadLine());
+
 double[,] GetArray(int a, int b)
 {
     double[,] array = new double[a, b];
@@ -13,7 +20,7 @@ double[,] GetArray(int a, int b)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = rnd.NextDouble()*10;
+            array[i, j] = rnd.NextDouble() * 10;
         }
     }
     return array;
@@ -31,5 +38,5 @@ void PrintArray(double[,] array)
     }
 }
 
-double[,] arrayResult = GetArray(3, 4);
+double[,] arrayResult = GetArray(m, n);
 PrintArray(arrayResult);
