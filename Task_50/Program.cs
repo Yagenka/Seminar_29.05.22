@@ -15,6 +15,12 @@ int row = int.Parse(Console.ReadLine());
 Console.Write("Введите количество столбцов - ");
 int column = int.Parse(Console.ReadLine());
 
+Console.Write("Введите искомую позицию в строках - ");
+int a = int.Parse(Console.ReadLine());
+
+Console.Write("Введите искомую позицию в столбцах - ");
+int b = int.Parse(Console.ReadLine());
+
 int[,] GetArray(int a, int b)
 {
     int[,] array = new int[a, b];
@@ -41,23 +47,16 @@ void PrintArray(int[,] array)
     }
 }
 
-int GetZnacheniePoPosicii(int[,] array)
+
+void GetZnacheniePoPosicii(int[,] array, int a, int b)
 {
-    int a = int.Parse(Console.ReadLine());
-    int b = int.Parse(Console.ReadLine());
-    int result = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    if (a > array.GetLength(0) || b > array.GetLength(1))
     {
-        for (int j = 0; j < array.GetLength(1); i++)
-        {
-            if (a == i && b == j)
-            result = array[i,j];
-        }
+        Console.WriteLine("нет такого элемента");
     }
-    return result;
+    else     Console.WriteLine($"Значение в этом элементе -  {array[a, b]}");
 }
 
 int[,] arrayResult = GetArray(row, column);
 PrintArray(arrayResult);
-int res = GetZnacheniePoPosicii(arrayResult);
-Console.WriteLine(res);
+GetZnacheniePoPosicii(arrayResult, a, b);
